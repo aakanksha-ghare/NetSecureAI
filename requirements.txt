@@ -1,0 +1,8 @@
+
+Flask
+pytest
+python-dotenv
+pydantic
+PyYAML
+reportlab
+openai

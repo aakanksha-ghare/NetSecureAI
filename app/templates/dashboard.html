@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="NetSecureAI network configuration security auditing dashboard"
+    >
+    <title>NetSecureAI | Security Audit</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/dashboard.css') }}"
+    >
+    <script
+        src="{{ url_for('static', filename='js/dashboard.js') }}"
+        defer
+    ></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">NetSecure<span>AI</span></a>
+        <span class="header-label">Network Security Audit Platform</span>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <p class="eyebrow">SECURITY POSTURE ASSESSMENT</p>
+            <h1>Network Configuration Audit</h1>
+            <p class="subtitle">
+                Analyze network configurations against security baseline
+                rules and review evidence-based compliance findings.
+            </p>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2>Start an audit</h2>
+                    <p>Select a vendor and provide its configuration.</p>
+                </div>
+                <span class="status-indicator">Audit engine</span>
+            </div>
+
+            <form id="audit-form">
+                <label for="vendor">Network vendor</label>
+                <select id="vendor" name="vendor" required>
+                    <option value="cisco">Cisco</option>
+                    <option value="juniper">Juniper</option>
+                    <option value="arista">Arista</option>
+                    <option value="fortinet">Fortinet</option>
+                    <option value="palo_alto">Palo Alto Networks</option>
+                    <option value="checkpoint">Check Point</option>
+                    <option value="huawei">Huawei</option>
+                    <option value="aruba">Aruba</option>
+                    <option value="mikrotik">MikroTik</option>
+                </select>
+
+                <label for="config">Configuration text</label>
+                <textarea
+                    id="config"
+                    name="config"
+                    rows="12"
+                    spellcheck="false"
+                    placeholder="Paste a sanitized network configuration here..."
+                    required
+                ></textarea>
+
+                <p class="field-note">
+                    Use authorized configurations. Remove credentials,
+                    private keys, and other sensitive information before
+                    submitting.
+                </p>
+
+                <div class="form-actions">
+                    <button type="submit" id="audit-button">
+                        Run security audit
+                    </button>
+                    <button type="reset" class="secondary-button">
+                        Clear
+                    </button>
+                </div>
+            </form>
+
+            <p id="audit-message" class="message" role="status"
+               aria-live="polite"></p>
+        </section>
+
+        <section id="results-section" class="results-section" hidden>
+            <div class="results-heading">
+                <div>
+                    <p class="eyebrow">ASSESSMENT RESULTS</p>
+                    <h2>Audit findings</h2>
+                    <p id="device-details" class="subtitle"></p>
+                </div>
+            </div>
+
+            <div class="summary-grid">
+                <article class="summary-card">
+                    <span>Total findings</span>
+                    <strong id="total-count">0</strong>
+                </article>
+                <article class="summary-card pass-card">
+                    <span>Passed</span>
+                    <strong id="pass-count">0</strong>
+                </article>
+                <article class="summary-card fail-card">
+                    <span>Failed</span>
+                    <strong id="fail-count">0</strong>
+                </article>
+                <article class="summary-card unknown-card">
+                    <span>Unknown</span>
+                    <strong id="unknown-count">0</strong>
+                </article>
+            </div>
+
+            <div class="panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Detailed findings</h2>
+                        <p>
+                            Review observed evidence, severity, and
+                            recommended remediation.
+                        </p>
+                    </div>
+                </div>
+                <div id="findings-list" class="findings-list"></div>
+            </div>
+
+            
+<div class="panel">
+    <h2>Audit report</h2>
+    <p class="field-note">
+        Download a PDF containing the audit findings, framework mappings,
+        risk information, and evidence metadata.
+    </p>
+    <button type="button" id="download-report-button">
+        Download PDF report
+    </button>
+    <p id="report-message" class="message" role="status"
+       aria-live="polite"></p>
+</div>
+
+<div class="panel integrity-panel">
+    <h2>Configuration integrity</h2>
+    <p class="field-note">
+        Compare a supplied configuration with the SHA-256 fingerprint
+        stored for this audit.
+    </p>
+
+    <label for="verification-config">Configuration to verify</label>
+    <textarea
+        id="verification-config"
+        rows="8"
+        spellcheck="false"
+        placeholder="The original configuration will appear here after an audit."
+    ></textarea>
+
+    <p id="configuration-hash" class="hash-value"></p>
+    <p id="evidence-record" class="field-note"></p>
+
+    <button type="button" id="verify-evidence-button">
+        Verify configuration integrity
+    </button>
+    <p id="verification-message" class="message" role="status"
+       aria-live="polite"></p>
+</div>
+
+        </section>
+
+        <footer>
+            NetSecureAI · Evidence-based network security assessment
+        </footer>
+    </main>
+</body>
+</html>

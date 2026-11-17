@@ -1,0 +1,320 @@
+
+:root {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #172334;
+    background: #f4f7fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.topbar {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 0 7%;
+    background: #122b45;
+    color: #fff;
+}
+
+.brand {
+    color: #fff;
+    font-size: 1.45rem;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.brand span {
+    color: #56c7c1;
+}
+
+.header-label {
+    color: #cbd6e2;
+    font-size: 0.9rem;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.hero {
+    padding: 42px 0 26px;
+}
+
+.eyebrow {
+    color: #187c82;
+    font-size: 0.75rem;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h2 {
+    margin: 0 0 8px;
+    font-size: 1.25rem;
+}
+
+.subtitle,
+.section-heading p {
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.panel {
+    margin-bottom: 24px;
+    padding: 26px;
+    border: 1px solid #e0e7ef;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgb(25 45 70 / 4%);
+}
+
+.section-heading,
+.results-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.status-indicator {
+    padding: 7px 11px;
+    border-radius: 20px;
+    background: #e6f6f4;
+    color: #176e6a;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+label {
+    display: block;
+    margin: 20px 0 8px;
+    font-size: 0.92rem;
+    font-weight: 650;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    color: #172334;
+    font: inherit;
+}
+
+select:focus,
+textarea:focus {
+    outline: 2px solid #62bdb8;
+    outline-offset: 2px;
+}
+
+textarea {
+    min-height: 220px;
+    resize: vertical;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.field-note {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 8px;
+    background: #176f79;
+    color: #fff;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #115963;
+}
+
+button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.secondary-button {
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    color: #334155;
+}
+
+.secondary-button:hover {
+    background: #f1f5f9;
+}
+
+.message {
+    margin-bottom: 0;
+    color: #475569;
+    overflow-wrap: anywhere;
+}
+
+.message.error {
+    color: #b42318;
+}
+
+.message.success {
+    color: #18744a;
+}
+
+.results-section {
+    margin-top: 38px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.summary-card {
+    padding: 20px;
+    border: 1px solid #e0e7ef;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.summary-card span {
+    display: block;
+    color: #64748b;
+    font-size: 0.88rem;
+}
+
+.summary-card strong {
+    display: block;
+    margin-top: 10px;
+    font-size: 2rem;
+}
+
+.pass-card strong {
+    color: #18744a;
+}
+
+.fail-card strong {
+    color: #c0362c;
+}
+
+.unknown-card strong {
+    color: #946200;
+}
+
+.findings-list {
+    display: grid;
+    gap: 14px;
+}
+
+.finding {
+    padding: 18px;
+    border: 1px solid #e0e7ef;
+    border-left: 4px solid #94a3b8;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.finding.status-pass {
+    border-left-color: #21976a;
+}
+
+.finding.status-fail {
+    border-left-color: #d04444;
+}
+
+.finding.status-unknown {
+    border-left-color: #d49b27;
+}
+
+.finding h3 {
+    margin: 0 0 12px;
+    font-size: 1.03rem;
+}
+
+.finding p {
+    margin: 8px 0;
+    color: #475569;
+    line-height: 1.55;
+    white-space: pre-wrap;
+}
+
+.finding .finding-status {
+    font-size: 0.78rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+}
+
+.hash-value {
+    overflow-wrap: anywhere;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+footer {
+    padding: 24px 0 32px;
+    color: #64748b;
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 720px) {
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 16px 5%;
+    }
+
+    .header-label {
+        font-size: 0.8rem;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-heading {
+        flex-direction: column;
+    }
+}
